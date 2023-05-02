@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1683063915590" clover="3.2.0">
-  <project timestamp="1683063915590" name="All files">
-    <metrics statements="587" coveredstatements="556" conditionals="90" coveredconditionals="67" methods="101" coveredmethods="91" elements="778" coveredelements="714" complexity="0" loc="587" ncloc="587" packages="26" files="64" classes="64"/>
+<coverage generated="1683071036092" clover="3.2.0">
+  <project timestamp="1683071036092" name="All files">
+    <metrics statements="586" coveredstatements="555" conditionals="90" coveredconditionals="67" methods="101" coveredmethods="91" elements="777" coveredelements="713" complexity="0" loc="586" ncloc="586" packages="26" files="64" classes="64"/>
     <package name="src">
       <metrics statements="22" coveredstatements="16" conditionals="2" coveredconditionals="0" methods="5" coveredmethods="2"/>
       <file name="app.ts" path="/home/gabriel/drivent-pt4/drivent-api/src/app.ts">
@@ -90,17 +90,17 @@
         <line num="27" count="10" type="cond" truecount="1" falsecount="0"/>
         <line num="28" count="3" type="stmt"/>
         <line num="30" count="7" type="stmt"/>
-        <line num="35" count="11" type="stmt"/>
+        <line num="34" count="11" type="stmt"/>
+        <line num="35" count="13" type="stmt"/>
         <line num="36" count="13" type="stmt"/>
         <line num="37" count="13" type="stmt"/>
-        <line num="38" count="13" type="stmt"/>
-        <line num="40" count="13" type="stmt"/>
-        <line num="41" count="13" type="cond" truecount="1" falsecount="0"/>
-        <line num="43" count="12" type="stmt"/>
-        <line num="44" count="2" type="stmt"/>
-        <line num="48" count="10" type="cond" truecount="1" falsecount="0"/>
-        <line num="49" count="4" type="stmt"/>
-        <line num="51" count="6" type="stmt"/>
+        <line num="39" count="13" type="stmt"/>
+        <line num="40" count="13" type="cond" truecount="1" falsecount="0"/>
+        <line num="42" count="12" type="stmt"/>
+        <line num="43" count="2" type="stmt"/>
+        <line num="47" count="10" type="cond" truecount="1" falsecount="0"/>
+        <line num="48" count="4" type="stmt"/>
+        <line num="50" count="6" type="stmt"/>
       </file>
       <file name="enrollments-controller.ts" path="/home/gabriel/drivent-pt4/drivent-api/src/controllers/enrollments-controller.ts">
         <metrics statements="20" coveredstatements="19" conditionals="1" coveredconditionals="1" methods="3" coveredmethods="3"/>
@@ -368,9 +368,9 @@
         <line num="24" count="3" type="stmt"/>
         <line num="33" count="0" type="stmt"/>
         <line num="44" count="0" type="stmt"/>
-        <line num="56" count="5" type="stmt"/>
-        <line num="64" count="11" type="stmt"/>
-        <line num="73" count="11" type="stmt"/>
+        <line num="55" count="5" type="stmt"/>
+        <line num="63" count="11" type="stmt"/>
+        <line num="72" count="11" type="stmt"/>
       </file>
     </package>
     <package name="src.repositories.enrollment-repository">
@@ -403,8 +403,8 @@
         <line num="4" count="2" type="stmt"/>
         <line num="8" count="3" type="stmt"/>
         <line num="19" count="12" type="stmt"/>
-        <line num="28" count="11" type="stmt"/>
-        <line num="34" count="11" type="stmt"/>
+        <line num="27" count="11" type="stmt"/>
+        <line num="33" count="11" type="stmt"/>
       </file>
     </package>
     <package name="src.repositories.payments-repository">
@@ -457,7 +457,7 @@
       </file>
     </package>
     <package name="src.routers">
-      <metrics statements="60" coveredstatements="60" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="59" coveredstatements="59" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="authentication-router.ts" path="/home/gabriel/drivent-pt4/drivent-api/src/routers/authentication-router.ts">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="11" type="stmt"/>
@@ -469,14 +469,13 @@
         <line num="10" count="11" type="stmt"/>
       </file>
       <file name="booking-router.ts" path="/home/gabriel/drivent-pt4/drivent-api/src/routers/booking-router.ts">
-        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="11" type="stmt"/>
         <line num="2" count="11" type="stmt"/>
         <line num="3" count="11" type="stmt"/>
-        <line num="4" count="11" type="stmt"/>
+        <line num="5" count="11" type="stmt"/>
         <line num="6" count="11" type="stmt"/>
-        <line num="7" count="11" type="stmt"/>
-        <line num="13" count="11" type="stmt"/>
+        <line num="12" count="11" type="stmt"/>
       </file>
       <file name="enrollments-router.ts" path="/home/gabriel/drivent-pt4/drivent-api/src/routers/enrollments-router.ts">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
