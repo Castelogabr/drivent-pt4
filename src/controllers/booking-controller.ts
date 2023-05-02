@@ -1,4 +1,4 @@
-import { Response } from 'express';
+import { Response, NextFunction } from 'express';
 import httpStatus from 'http-status';
 import { AuthenticatedRequest } from '@/middlewares';
 import bookingService from '@/services/booking-service';
@@ -15,7 +15,7 @@ export async function getBooking(req: AuthenticatedRequest, res: Response) {
   }
 }
 
-export async function postBooking(req: AuthenticatedRequest, res: Response) {
+export async function postBooking(req: AuthenticatedRequest, res: Response, next: NextFunction) {
   const { userId } = req;
   const { roomId } = req.body;
 
@@ -24,30 +24,26 @@ export async function postBooking(req: AuthenticatedRequest, res: Response) {
 
     return res.status(httpStatus.OK).send({ bookingId: booking.id });
   } catch (error) {
-    if (error.name === 'ForbiddenError') {
-      return res.sendStatus(httpStatus.FORBIDDEN);
-    }
-    return res.sendStatus(httpStatus.NOT_FOUND);
+    next(error);
   }
 }
 
 export async function updateBooking(req: AuthenticatedRequest, res: Response) {
+  const { userId } = req;
+  const { bookingId } = req.params;
+  const { roomId } = req.body;
+
   try {
-    const roomId = Number(req.body.roomId);
-    const bookingId = Number(req.params.bookingId);
-    const { userId } = req;
+    if (!roomId) return res.sendStatus(httpStatus.BAD_REQUEST);
 
-    if (!roomId || !bookingId) {
-      return res.sendStatus(httpStatus.BAD_REQUEST);
-    }
-    await bookingService.updateBooking(userId, roomId, bookingId);
-
-    return res.status(httpStatus.OK).send({ bookingId: bookingId });
+    const updatedRoom = await bookingService.updateBooking(userId, Number(bookingId), Number(roomId));
+    return res.status(httpStatus.OK).send({
+      bookingId: updatedRoom.id,
+    });
   } catch (error) {
-    if (error.name === 'Forbidden') {
-      return res.sendStatus(httpStatus.FORBIDDEN);
+    if (error.name === 'NotFoundError') {
+      return res.sendStatus(httpStatus.NOT_FOUND);
     }
-
-    return res.sendStatus(httpStatus.NOT_FOUND);
+    return res.sendStatus(httpStatus.FORBIDDEN);
   }
 }

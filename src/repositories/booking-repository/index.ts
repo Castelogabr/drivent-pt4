@@ -1,4 +1,7 @@
+import { Booking } from '@prisma/client';
 import { prisma } from '@/config';
+
+type UpdateBookings = Omit<Booking, 'createdAt' | 'updatedAt'>;
 
 async function getBooking(userId: number) {
   return prisma.booking.findFirst({
@@ -50,21 +53,14 @@ async function findBookingByUserId(userId: number) {
     },
   });
 }
-async function updateBooking(id: number, roomId: number) {
+async function updateBooking(bookingId: number, roomId: number) {
   return prisma.booking.update({
-    where: {
-      id,
-    },
+    where: { id: bookingId },
     data: {
-      Room: {
-        connect: {
-          id: roomId,
-        },
-      },
+      roomId,
     },
   });
 }
-
 const bookingRepository = {
   getBooking,
   getBookingById,
