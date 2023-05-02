@@ -17,10 +17,11 @@ export async function getBooking(req: AuthenticatedRequest, res: Response) {
 
 export async function postBooking(req: AuthenticatedRequest, res: Response) {
   const { userId } = req;
-  const roomId: number = req.body.roomId;
+  const { roomId } = req.body;
 
   try {
-    const booking = await bookingService.postBooking(userId, roomId);
+    const booking = await bookingService.postBooking(userId, Number(roomId));
+
     return res.status(httpStatus.OK).send({ bookingId: booking.id });
   } catch (error) {
     if (error.name === 'NotFoundError') {
