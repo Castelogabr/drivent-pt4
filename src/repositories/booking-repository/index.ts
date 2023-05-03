@@ -23,8 +23,8 @@ async function getBookingById(bookingId: number) {
 async function createBooking(roomId: number, userId: number) {
   return prisma.booking.create({
     data: {
-      userId,
       roomId,
+      userId,
     },
   });
 }

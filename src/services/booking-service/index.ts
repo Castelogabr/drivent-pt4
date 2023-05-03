@@ -32,14 +32,13 @@ async function checkBooking(userId: number) {
 async function postBooking(userId: number, roomId: number) {
   await checkBooking(userId);
 
-  const room = await hotelRepository.getRoomAndBookingById(roomId);
+  const room = await hotelRepository.findById(roomId);
   if (!room) throw notFoundError();
+  const bookings = await bookingRepository.getBookingsRoom(roomId);
 
-  if (room.capacity <= room.Booking.length) throw forbiddenError();
+  if (room.capacity <= bookings.length) throw notFoundError();
 
-  const booking = await bookingRepository.createBooking(userId, roomId);
-
-  return booking;
+  return bookingRepository.createBooking(roomId, userId);
 }
 
 async function updateBooking(userId: number, bookingId: number, roomId: number) {

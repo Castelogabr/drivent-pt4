@@ -33,6 +33,16 @@ export async function createTicketTypeRemote() {
     },
   });
 }
+export async function updateTicketStatusPaid(ticketId: number) {
+  return prisma.ticket.update({
+    where: {
+      id: ticketId,
+    },
+    data: {
+      status: 'PAID',
+    },
+  });
+}
 
 export async function createTicketTypeWithOutHotel() {
   return prisma.ticketType.create({
